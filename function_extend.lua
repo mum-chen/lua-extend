@@ -8,32 +8,23 @@ Y = function(f)
 	end)
 end
 
-function map(f, xt)
+function map(f, xt, iterate)
 	local k, v
 	local yt = {}
-	for k, v in pairs(xt) do
+	local iterate = iterate or ipairs
+	for k, v in iterate(xt) do
 		yt[k] = f(v)
 	end
 	return yt
 end
 
-function filter(f, xt)
+function filter(f, xt, iterate)
 	local k, v
 	local yt = {}
-	for k, v in pairs(xt) do
+	local iterate = iterate or ipairs
+	for k, v in iterate(xt) do
 		if f(k, v) then
 			yt[k] = v
-		end
-	end
-	return yt
-end
-
-function filter_list(f, xt)
-	local i, v
-	local yt = {}
-	for i, v in pairs(xt) do
-		if f(v) then
-			yt[#yt + 1] = v
 		end
 	end
 	return yt
