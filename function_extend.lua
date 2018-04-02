@@ -30,6 +30,25 @@ function filter(f, xt, iterate)
 	return yt
 end
 
+function reduce(fun, xt, init_val, iterate)
+	local iterate = iterate or ipairs
+	local before, current
+
+	before = init_val
+
+	local iter_f, t, current = iterate(xt)
+
+	while true do
+		current = iter_f(t, current)
+		if not current then
+			break
+		end
+		before = fun(before, current)
+	end
+
+	return before
+end
+
 function range(i, j, k)
 	local s, e, g = 1, 1, 1 -- start: 0, end:0, gap:1
 	assert(i, "i is necessart")

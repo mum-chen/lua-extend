@@ -33,3 +33,14 @@ print("success: map")
 local list5 = filter(function(x) return x < 4 end, range(10))
 assert(#list5 == 3 and list5[1] == 1 and list5[3] == 3)
 print("success: filter")
+
+-- =========================================================
+local sum = function(x, y)
+	return x+y
+end
+
+assert(reduce(sum, range(0), nil)==nil)
+assert(reduce(sum, range(0), 0)==0)
+assert(reduce(sum, range(1), 1)==2)
+assert(reduce(sum, range(10), 0)==55)
+print("success: reduce")
