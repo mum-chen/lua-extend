@@ -65,7 +65,7 @@ function range(i, j, k)
 	else
 		error("error args input")
 	end
-	
+
 	local l
 	local xl = {}
 	for l = s, e, g do
