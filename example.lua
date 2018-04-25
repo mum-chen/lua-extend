@@ -32,6 +32,12 @@ print("success: map")
 -- =========================================================
 local list5 = filter(function(x) return x < 4 end, range(10))
 assert(#list5 == 3 and list5[1] == 1 and list5[3] == 3)
+
+local list6 = filter(function(i, v) return i ~= 4 end, range(10))
+assert(list6[10] == 10 and list6[4] == nil)
+
+local list7 = filter_list(function(v) return v ~= 4 end, range(10))
+assert(#list7 == 9 and list7[4] == 5)
 print("success: filter")
 
 -- =========================================================
