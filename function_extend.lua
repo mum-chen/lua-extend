@@ -30,6 +30,17 @@ function filter(f, xt, iterate)
 	return yt
 end
 
+function filter_list(f, list)
+	local v
+	local _list = {}
+	for _, v in ipairs(list) do
+		if f(v) then
+			_list[#_list + 1] = v
+		end
+	end
+	return _list
+end
+
 function reduce(fun, xt, init_val, iterate)
 	local iterate = iterate or ipairs
 	local before, current
