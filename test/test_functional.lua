@@ -1,5 +1,6 @@
-require("function_extend")
 printclr = require("color-p")
+local Import = require("import")
+Import:import("functional", Import:scope_matcher("public"))
 
 -- =========================================================
 -- fact

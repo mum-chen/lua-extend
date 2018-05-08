@@ -1,4 +1,5 @@
-Y = function(f)
+local Functional = {}
+Functional.Y = function(f)
 	return (function(g)
 		return g(g)
 	end)(function(h)
@@ -8,7 +9,7 @@ Y = function(f)
 	end)
 end
 
-function map(f, xt, iterate)
+function Functional.map(f, xt, iterate)
 	local k, v
 	local yt = {}
 	local iterate = iterate or ipairs
@@ -18,7 +19,7 @@ function map(f, xt, iterate)
 	return yt
 end
 
-function filter(f, xt, iterate)
+function Functional.filter(f, xt, iterate)
 	local k, v
 	local yt = {}
 	local iterate = iterate or ipairs
@@ -30,7 +31,7 @@ function filter(f, xt, iterate)
 	return yt
 end
 
-function filter_list(f, list)
+function Functional.filter_list(f, list)
 	local v
 	local _list = {}
 	for _, v in ipairs(list) do
@@ -41,7 +42,7 @@ function filter_list(f, list)
 	return _list
 end
 
-function reduce(fun, xt, init_val, iterate)
+function Functional.reduce(fun, xt, init_val, iterate)
 	local iterate = iterate or ipairs
 	local before, current
 
@@ -60,7 +61,7 @@ function reduce(fun, xt, init_val, iterate)
 	return before
 end
 
-function range(i, j, k)
+function Functional.range(i, j, k)
 	local s, e, g = 1, 1, 1 -- start: 0, end:0, gap:1
 	assert(i, "i is necessart")
 
@@ -84,3 +85,5 @@ function range(i, j, k)
 	end
 	return xl
 end
+
+return Functional
