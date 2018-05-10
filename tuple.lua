@@ -20,11 +20,4 @@ function Tuple:__init__(...)
 end
 mt.__call = Tuple.__init__
 
-local TEST = false
-if TEST then
-	local t = Tuple(10, 20, 30, 40)
-	print(t())
-	t[10] = 1
-end
-
 return Tuple
