@@ -45,14 +45,19 @@ end
 function Functional.reduce(fun, xt, init_val, iterate)
 	local iterate = iterate or ipairs
 	local before, current
+	local iter_f, t, k = iterate(xt)
 
 	before = init_val
-
-	local iter_f, t, current = iterate(xt)
+	if before == nil then
+		k, before = iter_f(t, k)
+		if k == nil then
+			return before
+		end
+	end
 
 	while true do
-		current = iter_f(t, current)
-		if not current then
+		k, current = iter_f(t, k)
+		if k == nil then
 			break
 		end
 		before = fun(before, current)

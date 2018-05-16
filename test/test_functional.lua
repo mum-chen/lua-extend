@@ -46,8 +46,10 @@ local sum = function(x, y)
 	return x+y
 end
 
+assert(reduce(sum, range(0))==nil)
 assert(reduce(sum, range(0), nil)==nil)
 assert(reduce(sum, range(0), 0)==0)
 assert(reduce(sum, range(1), 1)==2)
-assert(reduce(sum, range(10), 0)==55)
+assert(reduce(sum, range(10))==55)
+assert(reduce(sum, range(3, 10))==52)
 print("success: reduce")
