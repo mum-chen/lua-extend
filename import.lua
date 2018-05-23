@@ -1,5 +1,5 @@
 Import = {
-	SRC_TOP = "",
+	SRC_TOP = ".",
 	VERBOSE = false,
 }
 
